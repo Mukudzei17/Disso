@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="form.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login Page</title>
+        <script type="module" src="login.js" async defer></script>
 
     </head>
 
@@ -15,8 +16,8 @@
 
         <div class="form">
             <h1 class="heading">Login</h1>
-            <input type="email" placeholder="email" autocomplete="off" class="email" required>
-            <input type="password" placeholder="passweezy" autocomplete="off" class="password" required>
+            <input id="email" type="email" placeholder="email" autocomplete="off" class="login-details" required>
+            <input id="password" type="password" placeholder="passweezy" autocomplete="off" class="login-details" required>
             <button class="submit-btn">Log in</button>
             <a href="register.html" class="link">Dont have an account? Register one</a>
         </div>
