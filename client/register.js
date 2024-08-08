@@ -17,8 +17,26 @@ function handlePasswordChange(event) {
 	console.log(`Password Value: ${passwordValue}`);
 }
 
-function handleRegisterSubmit(event) {
-	console.log('submit!')
+async function handleRegisterSubmit(event) {
+	event.preventDefault()
+	const response = await fetch('register', {
+		method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+		body: JSON.stringify({
+			name: nameValue,
+			email: emailValue,
+			password: passwordValue
+		})
+	});
+	if (response.ok) {
+		const text = await response.text()
+		console.log('Success:', text);
+		return text;
+	} else {
+		console.error('Error')
+	}
 }
 
 
