@@ -9,8 +9,8 @@ app.use(express.static('client'));
 
 
 app.post('/register', (req, res) => {
-  const { name, email, password} = req.body;
-  const data = `Name: ${name}, Email: ${email}, Password: ${password}\n`;
+  const { name, password} = req.body;
+  const data = `Name: ${name}, Password: ${password}\n`;
 
   fs.appendFile('output.txt', data + '\n', (err) => {
       if (err) {

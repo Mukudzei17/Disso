@@ -7,11 +7,6 @@ function handleNameChange(event) {
 	console.log(`Name Value: ${nameValue}`);
 }
 
-function handleEmailChange(event) {
-	emailValue = event.target.value;
-	console.log(`Email Value: ${emailValue}`);
-}
-
 function handlePasswordChange(event) {
 	passwordValue = event.target.value;
 	console.log(`Password Value: ${passwordValue}`);
@@ -26,7 +21,6 @@ async function handleRegisterSubmit(event) {
     },
 		body: JSON.stringify({
 			name: nameValue,
-			email: emailValue,
 			password: passwordValue
 		})
 	});
@@ -46,7 +40,6 @@ function prepEventListeners() {
 	// inputElements.forEach((element) => element.addEventListener('keypress', handleRegister))
 
 	document.querySelector('#name').addEventListener('input', handleNameChange);
-	document.querySelector('#email').addEventListener('input', handleEmailChange);
 	document.querySelector('#password').addEventListener('input', handlePasswordChange);
 	document.querySelector('#submit-btn').addEventListener('click', handleRegisterSubmit);
 }
