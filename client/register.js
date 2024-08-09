@@ -32,6 +32,7 @@ async function handleRegisterSubmit(event) {
 		if (response.ok) {
 			const text = await response.text()
 			console.log('Success:', text);
+			window.location.href = '/login.html'
 			return text;
 		} else {
 			console.error('Error')
