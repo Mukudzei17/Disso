@@ -9,28 +9,37 @@ function handleNameChange(event) {
 
 function handlePasswordChange(event) {
 	passwordValue = event.target.value;
-	console.log(`Password Value: ${passwordValue}`);
 }
 
 async function handleRegisterSubmit(event) {
 	event.preventDefault()
-	const response = await fetch('register', {
-		method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-		body: JSON.stringify({
-			name: nameValue,
-			password: passwordValue
-		})
-	});
-	if (response.ok) {
-		const text = await response.text()
-		console.log('Success:', text);
-		return text;
+
+	// 8 characters, 1 capital letter, 1 special character, and 2 numbers
+	const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[0-9].*[0-9]).{8,}$/;
+
+	if (passwordRegex.test(passwordValue)) {
+		// console.log('Password is valid', passwordValue);
+		const response = await fetch('register', {
+			method: 'POST',
+			headers: {
+					'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				name: nameValue,
+				password: passwordValue
+			})
+		});
+		if (response.ok) {
+			const text = await response.text()
+			console.log('Success:', text);
+			return text;
+		} else {
+			console.error('Error')
+		}
 	} else {
-		console.error('Error')
+			console.log('Password is invalid', passwordValue);
 	}
+	
 }
 
 
