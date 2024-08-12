@@ -11,6 +11,7 @@ function handlePasswordChange(event) {
 }
 
 async function handleRegisterSubmit(event) {
+	event.preventdefault(); //prevent default form submission
 	const response = await fetch('login', {
 		method: 'POST',
 		headers: {

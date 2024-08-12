@@ -18,7 +18,7 @@ async function handleRegisterSubmit(event) {
 	const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[0-9].*[0-9]).{8,}$/;
 
 	if (passwordRegex.test(passwordValue)) {
-		// console.log('Password is valid', passwordValue);
+		console.log('Password is valid', passwordValue);
 		const response = await fetch('register', {
 			method: 'POST',
 			headers: {
