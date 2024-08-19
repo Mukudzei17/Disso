@@ -1,42 +1,47 @@
-let nameValue;
+let usernameValue;
 let passwordValue;
 
-function handleNameChange(event) {
-	nameValue = event.target.value;
-	console.log(`Name Value: ${nameValue}`);
+function handleUsernameChange(event) {
+  usernameValue = event.target.value;
+  console.log(`Username Value: ${usernameValue}`);
 }
 
 function handlePasswordChange(event) {
-	passwordValue = event.target.value;
+  passwordValue = event.target.value;
 }
 
-async function handleRegisterSubmit(event) {
-	const response = await fetch('login', {
-		method: 'POST',
-		headers: {
-				'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			name: nameValue,
-			password: passwordValue
-		})
-});
+async function handleLoginSubmit(event) {
+  event.preventDefault(); // Prevent default form submission
 
-if (response.ok) {
-		const data = await response.json();
-		console.log('Login successful:', data);
+  try {
+    const response = await fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: usernameValue,
+        password: passwordValue,
+      }),
+    });
 
-		window.location.href = '/inshide.html';
-} else {
-		console.error('Login failed:', response.statusText);
-}
+    if (response.ok) {
+      const data = await response.json();
+      console.log('Login successful:', data);
+      window.location.href = '/survey.html';
+    } else {
+      console.error('Login failed:', response.statusText);
+      alert('Login failed');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
 
 function prepEventListeners() {
-
-	document.querySelector('#name').addEventListener('input', handleNameChange);
-	document.querySelector('#password').addEventListener('input', handlePasswordChange);
-	document.querySelector('#submit-btn').addEventListener('click', handleRegisterSubmit);
+  document.querySelector('#username').addEventListener('input', handleUsernameChange);
+  document.querySelector('#password').addEventListener('input', handlePasswordChange);
+  document.querySelector('#login-form').addEventListener('submit', handleLoginSubmit);
 }
 
-prepEventListeners()
+prepEventListeners();
