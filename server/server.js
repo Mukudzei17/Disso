@@ -8,32 +8,33 @@ const app = express();
 app.use(express.json());
 app.use(express.static('client'));
 
-function getLoginDetails(email, password, callback) {
+function getLoginDetails(name, password, callback) {
   const fileStream = fs.createReadStream('output.txt');
-
   const rl = readline.createInterface({
     input: fileStream,
     crlfDelay: Infinity
   });
 
+  let called = false;
+
   rl.on('line', (line) => {
     const [storedName, storedPassword] = line.split(',').map(item => item.split(': ')[1]);
 
-    if (storedPassword === password) {
+    if (storedPassword === password && !called) {
+        called = true;
         callback(null, { name: storedName, password: storedPassword });
         rl.close();
     }
   });
 
   rl.on('close', () => {
+    if (!called) {
       callback('User not found', null);
+    }
   });
 }
 
-app.get('/register', getLoginDetails)
-
-
-app.post('/register', (req, res) => {
+app.post('/register', async (req, res) => {
   const { name, password } = req.body;
   const data = `Name: ${name}, Password: ${password}\n`;
 
@@ -52,23 +53,27 @@ app.post('/login', (req, res) => {
   getLoginDetails(name, password, (err, userDetails) => {
     if (err) {
       console.log('Login failed:', err);
-      if (!res.headersSent) {
-          return res.status(401).json({ message: 'Invalid login credentials' });
-      }
+      return res.status(401).json({ message: 'Invalid login credentials' });
     } else {
-      console.log('Login successful:', userDetails);
-      if (!res.headersSent) {
-          return res.json({ message: 'Login successful', user: userDetails });
-      }
+      return res.json({ message: 'Login successful', user: userDetails });
     }
   });
 });
 
-app.listen(8080);
+app.post('/submit-survey', (req, res) => {
+  const surveyData = req.body; // Extracts the survey data from the request body
+  const data = JSON.stringify(surveyData) + '\n'; // Converts the survey data to a JSON string and adds a newline
 
-// app.use(express.static(path.join(path.dirname(url.fileURLToPath(import.meta.url)), 'client')));
+  fs.appendFile('survey_results.txt', data, (err) => { // Appends the data to 'survey_results.txt'
+      if (err) {
+          console.error('Error writing to file', err); // Logs an error if writing to the file fails
+          return res.status(500).send('Internal Server Error'); // Sends a 500 status code if there's an error
+      }
+      res.send('Survey results saved'); // Sends a success message if the data is saved successfully
+  });
+});
 
-// const PORT = process.env.PORT || 8080;
-// app.listen(PORT, () => {
-//   console.log(`Disso is listening on port ${PORT}!`);
-// });
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}!`);
+});

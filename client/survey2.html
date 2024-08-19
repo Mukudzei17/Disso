@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey pt2</title>
+    <link rel="stylesheet" href="survey.css">
+</head>
+<body>
+    <h1>Survey Questionnaire</h1>
+    <form id="surveyForm">
+        <label for="name">What is your name?</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="age">What is your age?</label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="occupation">What is your occupation?</label>
+        <select id="occupation" name="occupation" required>
+            <option value="Tech">Tech related</option>
+            <option value="corporate">Corporate</option>
+            <option value="student">Student</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <label for="passwordchange">How often are you required to change your password?</label>
+        <select id="passwordchange" name="passwordchange" required>
+            <option value="30">Every 30 days</option>
+            <option value="60">Every 60 days</option>
+            <option value="120">Every 120 days</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <label for="authenmethods">How many authentication methods do you use?</label>
+        <select id="authenmethods" name="authenmethods" required onchange="showOtherField()">
+            <option value="passwordonly">Password only</option>
+            <option value="password2fa">Password and two-factor authentication (2FA)</option>
+            <option value="passwordbiometric">Password and biometric</option>
+            <option value="other">Other (please specify)</option>
+        </select>
+        <br>
+        <div id="OtherField" class="hidden">
+            <label for="otherAuth">Please specify:</label>
+            <input type="text" id="otherAuth" name="otherAuth">
+        </div>
+        <br>
+
+        <label for="passwordreuse">How often do you reuse passwords across different accounts?</label>
+        <select id="passwordreuse" name="passwordreuse" required>
+            <option value="always">Always</option>
+            <option value="often">Often</option>
+            <option value="sometimes">Sometimes</option>
+            <option value="never">Never</option>
+        </select><br>
+
+        <label for="passwordstorage">How do you typically store your passwords?</label>
+        <select id="passwordstorage" name="passwordstorage" required onchange="showOtherPassword()">
+            <option value="paper">Written down on paper</option>
+            <option value="savedinpc">Saved in a document on your computer</option>
+            <option value="passwordman">Stored in a password manager</option>
+            <option value="memorized">Memorized</option>
+            <option value="other">Other (please specify)</option>
+        </select>
+        <br>
+        <div id="OtherPassword" class="hidden">
+            <label for="otherpass">Please specify:</label>
+            <input type="text" id="otherpass" name="otherpass">
+        </div>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <button><a href="login2.html">Proceed</a></button>
+    <button><a href="login.html">Go back</a></button>
+
+    <script src="survey2.js"></script>
+</body>
+</html>
