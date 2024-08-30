@@ -41,9 +41,9 @@ app.post('/register', async (req, res) => {
   fs.appendFile('output.txt', data + '\n', (err) => {
       if (err) {
           console.error('Error writing to file', err);
-          return res.status(500).send('Internal Server Error');
+          return res.status(500).json({ message: 'Internal Server Error' });
       }
-      res.send('Data saved to file');
+      res.json({ message: 'Data saved to file' });
   });
 });
 
@@ -67,9 +67,9 @@ app.post('/submit-survey', (req, res) => {
   fs.appendFile('survey_results.txt', data, (err) => { // Appends the data to 'survey_results.txt'
       if (err) {
           console.error('Error writing to file', err); // Logs an error if writing to the file fails
-          return res.status(500).send('Internal Server Error'); // Sends a 500 status code if there's an error
+          return res.status(500).json({ message: 'Internal Server Error' }); // Sends a 500 status code if there's an error
       }
-      res.send('Survey results saved'); // Sends a success message if the data is saved successfully
+      res.json({ message: 'Survey results saved' }); // Sends a success message if the data is saved successfully
   });
 });
 
@@ -77,3 +77,4 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}!`);
 });
+

@@ -7,29 +7,17 @@
     <link rel="stylesheet" href="survey.css">
 </head>
 <body>
-    <h1>Survey Questionnaire</h1>
+    <h1>Survey Questionnaire(continued)</h1><br><br><br>
     <form id="surveyForm">
-        <label for="name">What is your name?</label>
-        <input type="text" id="name" name="name" required><br>
-
-        <label for="age">What is your age?</label>
-        <input type="number" id="age" name="age" required><br>
-
-        <label for="occupation">What is your occupation?</label>
-        <select id="occupation" name="occupation" required>
-            <option value="Tech">Tech related</option>
-            <option value="corporate">Corporate</option>
-            <option value="student">Student</option>
-            <option value="other">Other</option>
+       
+        <label for="pwordupdate">How often do you update your passwords without being prompted by a system requirement?</label><br>
+        <select id="pwordupdate" name="pwordupdate">
+            <option value="regularly">Regularly (e.g., every few months)</option>
+            <option value="occasionally">Occasionally (e.g., once a year)</option>
+            <option value="rarely">Rarely (e.g., only when I suspect a breach)</option>
+            <option value="never">Never</option>
         </select><br>
-
-        <label for="passwordchange">How often are you required to change your password?</label>
-        <select id="passwordchange" name="passwordchange" required>
-            <option value="30">Every 30 days</option>
-            <option value="60">Every 60 days</option>
-            <option value="120">Every 120 days</option>
-            <option value="other">Other</option>
-        </select><br>
+        
 
         <label for="authenmethods">How many authentication methods do you use?</label>
         <select id="authenmethods" name="authenmethods" required onchange="showOtherField()">
@@ -53,6 +41,29 @@
             <option value="never">Never</option>
         </select><br>
 
+        <label for="easypwords">How often do you use easily guessable passwords (e.g., "password123", "qwerty")?</label><br>
+        <select id="easypwords" name="easypwords">
+            <option value="always">Always</option>
+            <option value="often">Often</option>
+            <option value="sometimes">Sometimes</option>
+            <option value="never">Never</option>
+        </select><br><br>
+
+        <label for="uniqueimportance">Do you understand the importance of using unique passwords for different accounts?</label>
+        <select id="uniqueimportance" name="uniqueimportance" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        <label for="thinkconsequences">How often do you think about the potential consequences of a password breach?</label>
+        <select id="thinkconsequences" name="thinkconsequences" required>
+            <option value="frequently">Frequently</option>
+            <option value="occasionally">Occasionally</option>
+            <option value="rarely">Rarely</option>
+            <option value="never">Never</option>
+        </select><br><br>
+
+
         <label for="passwordstorage">How do you typically store your passwords?</label>
         <select id="passwordstorage" name="passwordstorage" required onchange="showOtherPassword()">
             <option value="paper">Written down on paper</option>
@@ -66,13 +77,69 @@
             <label for="otherpass">Please specify:</label>
             <input type="text" id="otherpass" name="otherpass">
         </div>
-        <br>
+        <br><br>
 
-        <button type="submit">Submit</button>
-    </form>
-    <br>
-    <button><a href="login2.html">Proceed</a></button>
-    <button><a href="login.html">Go back</a></button>
+        <label for="forgotpassword">How often do you use the "forgot password" feature due to forgetting complex passwords?</label>
+        <select id="forgotpassword" name="forgotpassword" required>
+            <option value="frequently">Frequently</option>
+            <option value="occasionally">Occasionally</option>
+            <option value="rarely">Rarely</option>
+            <option value="never">Never</option>
+        </select><br><br>
+
+        <label for="personaldetails">When creating a password, how often do you include personal details (e.g., your name, birthdate, or family members' names)?</label>
+<select id="personaldetails" name="personaldetails" required>
+    <option value="always">Always</option>
+    <option value="often">Often</option>
+    <option value="sometimes">Sometimes</option>
+    <option value="rarely">Rarely</option>
+    <option value="never">Never</option>
+</select>
+<br><br>
+
+<label for="passwordhint">Do you use the same password hint across multiple accounts?</label>
+<select id="passwordhint" name="passwordhint" required>
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select>
+<br><br>
+
+<label for="autofill">Do you use your browser’s autofill feature to save and fill in passwords?</label>
+<select id="autofill" name="autofill" required>
+    <option value="always">Always</option>
+    <option value="often">Often</option>
+    <option value="sometimes">Sometimes</option>
+    <option value="rarely">Rarely</option>
+    <option value="never">Never</option>
+</select>
+<br><br>
+
+<label for="similarpasswords">How often do you create passwords that are similar to your previous passwords (e.g., by adding a number or symbol at the end)?</label>
+<select id="similarpasswords" name="similarpasswords" required>
+    <option value="always">Always</option>
+    <option value="often">Often</option>
+    <option value="sometimes">Sometimes</option>
+    <option value="rarely">Rarely</option>
+    <option value="never">Never</option>
+</select>
+<br><br>
+
+<label for="passwordsharingmethod">If you have shared a password, how did you share it?</label>
+<select id="passwordsharingmethod" name="passwordsharingmethod" required>
+    <option value="verbally">Verbally (in person or over the phone)</option>
+    <option value="textmessage">Via text message</option>
+    <option value="email">Via email</option>
+    <option value="notesapp">Using a notes app or similar tool</option>
+    <option value="other">Other (please specify)</option>
+</select>
+<br><br>
+
+
+    <button type="submit">Submit</button>
+</form>
+<br>
+<button><a href="survey.html">RETURN</a></button>
+<button><a href="logout.html">FINISH</a></button>
 
     <script src="survey2.js"></script>
 </body>

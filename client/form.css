@@ -16,10 +16,12 @@
     font-family: 'roboto', sans-serif;
 }
 .form{
-    width: 400px;
+    width: 300px;
     height:auto;
-    color: azure;
+    color: rgb(15, 15, 15);
     font-family: 'roboto', sans-serif;
+    position: relative;
+    left: 600px;
 }
 
 .heading{
@@ -31,7 +33,7 @@
 }
 input,
 .submit-btn{
-    opacity: 1;
+    opacity: 15;
     width: 80%;
     height: 35px;
     display: block;
@@ -39,23 +41,19 @@ input,
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.3);
     border: none;
-    color: #fff;
+    color: #ffffff;
     padding: 15px;
-    transition: 0.5s;
+    transition: 3.5s;
     text-transform: capitalize;
+    cursor: pointer;
 }
 
 input::placeholder{
     color: #fff;
 }
 
-.submit-btn{
-    width: auto;
-    padding: 1 20px;
-    cursor: pointer;
-    margin: 50px auto 0;
-    opacity: 20;
-}
+
+
 
 .link{
     opacity: 20;
