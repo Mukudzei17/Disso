@@ -8,36 +8,37 @@ body{
     position: relative;
     width: 100%;
     min-height: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
+    align-items: center; 
     background: url(images/UEA.jpg);
     font-family: 'roboto', sans-serif;
 }
 
 .instructions{
-    
+    padding: 5%;
     font-family: 'dosis';
     font-size: auto;
-    color: #1d292f;
+    color: #275c61;
     font-weight: 800;
     text-transform: capitalize;
     position: relative;
-    top: 260px;
-    right: 300px;
-    align-items: baseline;
-    box-sizing: border-box;
+    /* top: 260px;
+    right: 300px; */
+    /* align-items: baseline; */
+    /* box-sizing: border-box; */
     border-radius: 5px;
     
 }
 
 .form{
-    width: auto;
+    padding: 5%;
+    width: 400px;
     height:auto;
-    color: rgb(38, 52, 52);
+    color: rgb(34, 89, 89);
     font-family: 'roboto', sans-serif;
-    align-items: flex-end;
     position: relative; 
-    top: 250px;
-    right: 250px;
+    /* top: 250px;
+    right: 250px; */
 }
