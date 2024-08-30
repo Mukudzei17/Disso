@@ -63,7 +63,7 @@ document.getElementById('surveyForm').addEventListener('submit', function(event)
     };
 
     // Send the combined data to the server once I receive the server I should put it within the parentheses
-    fetch('https://yourserver.com/submit', {
+    fetch('submit-survey', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
