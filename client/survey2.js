@@ -21,6 +21,8 @@ function showOtherPassword() {
 document.getElementById('surveyForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting the traditional way
 
+    alert('submitting your survey...');
+
     const pwordupdate = document.getElementById('pwordupdate').value;
     const authenmethods = document.getElementById('authenmethods').value;
     const otherAuth = document.getElementById('otherAuth').value;
