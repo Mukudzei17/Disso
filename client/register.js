@@ -18,7 +18,7 @@ async function handleRegisterSubmit(event) {
 
   if (passwordRegex.test(passwordValue)) {
     console.log('Password is valid', passwordValue);
-    alert('Password is valid: ' + passwordValue);
+    alert('Password is valid: ');
     try {
       const response = await fetch('/register', {
         method: 'POST',
