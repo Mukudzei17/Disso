@@ -7,46 +7,37 @@
 body{
     position: relative;
     width: 100%;
-    min-height: 100vh;
-    height: auto;
+    min-height: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url(UEA.jpg);
-    background-size: cover;
-    background-position: center;
+    justify-content: center; 
+    background: url(images/UEA.jpg);
     font-family: 'roboto', sans-serif;
 }
 
-.container{
-    position: relative;
-    width: 90%;
-    height: 87vh;
-    border: 5px solid #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logout{
-    position: absolute;
-    top: 10px;
-    right: 0;
-    padding: 10px 20px;
-    text-transform: capitalize;
-    font-size: 16px;
-    color: #fff;
-    background: none;
-    text-decoration: underline;
-    cursor: pointer;
-    outline: none;
-    border: none;
-}
-
-.greeting{
+.instructions{
+    
     font-family: 'dosis';
-    font-size: 100px;
-    color: #fff;
+    font-size: auto;
+    color: #1d292f;
     font-weight: 800;
     text-transform: capitalize;
+    position: relative;
+    top: 260px;
+    right: 300px;
+    align-items: baseline;
+    box-sizing: border-box;
+    border-radius: 5px;
+    
+}
+
+.form{
+    width: auto;
+    height:auto;
+    color: rgb(38, 52, 52);
+    font-family: 'roboto', sans-serif;
+    align-items: flex-end;
+    position: relative; 
+    top: 250px;
+    right: 250px;
 }

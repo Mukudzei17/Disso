@@ -8,59 +8,53 @@ function showOtherField() {
     }
 }
 
-function showOtherPassword() {
-    var selectBox = document.getElementById('passwordstorage');
-    var otherField = document.getElementById('OtherPassword');
-    if (selectBox.value === 'other') {
-        otherField.style.display = 'block';
-    } else {
-        otherField.style.display = 'none';
-    }
-}
-
-document.getElementById('surveyForm').addEventListener('submit', function(event) {
+document.getElementById('firstsurveyForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting the traditional way
 
     const name = document.getElementById('name').value;
     const age = document.getElementById('age').value;
     const occupation = document.getElementById('occupation').value;
+    const passwordtraining = document.getElementById('passwordtraining').value;
+    const passwordmanager = document.getElementById('passwordmanager').value;
+    const riskbelief = document.getElementById('riskbelief').value;
+    const complexityfeelings = document.getElementById('complexityfeelings').value;
+    const cyberthreatknowledge = document.getElementById('cyberthreatknowledge').value;
     const passwordchange = document.getElementById('passwordchange').value;
-    const passwordreuse = document.getElementById('passwordreuse').value;
     const authenmethods = document.getElementById('authenmethods').value;
     const otherAuth = document.getElementById('otherAuth').value;
-    const passwordstorage = document.getElementById('passwordstorage').value;
-    const otherPassword = document.getElementById('otherpass').value;
+    const reinputpassword = document.getElementById('reinputpassword').value;
 
-    const surveyResults = {
+    const firstsurveyData = {
         name: name,
         age: age,
         occupation: occupation,
+        passwordtraining: passwordtraining,
+        passwordmanager: passwordmanager,
+        riskbelief: riskbelief,
+        complexityfeelings: complexityfeelings,
+        cyberthreatknowledge: cyberthreatknowledge,
         passwordchange: passwordchange,
-        passwordreuse: passwordreuse,
         authenmethods: authenmethods === 'other' ? otherAuth : authenmethods,
-        passwordstorage: passwordstorage === 'other' ? otherPassword : passwordstorage,
+        reinputpassword: reinputpassword,
     };
 
-    console.log('Survey results:', surveyResults);
-    alert('Thank you for completing the survey!');
+    localStorage.setItem('firstsurveyData', JSON.stringify(firstsurveyData));
 
-    let surveyResultsText = '';
-    for (const [key, value] of Object.entries(surveyResults)) {
-        surveyResultsText += `${key}: ${value}\n`;
-    }
-
-    // Create a text file
-    const blob = new Blob([surveyResultsText], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-
-    // Create a link to download the file
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'survey_results.txt';
-    document.body.appendChild(a);
-    a.click();
-
-    // Clean up
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Redirect to the second part of the survey
+    window.location.href = 'survey2.html';
 });
+
+// Event listeners for password fields
+let passwordValue;
+let reinputPasswordValue;
+
+function handlePasswordChange(event) {
+    passwordValue = event.target.value;
+}
+
+function handleReinputPasswordChange(event) {
+    reinputPasswordValue = event.target.value;
+}
+
+document.getElementById('password').addEventListener('input', handlePasswordChange);
+document.getElementById('reinputpassword').addEventListener('input', handleReinputPasswordChange);

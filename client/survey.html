@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Survey Questionnaire</h1>
-    <form id="surveyForm">
+    <form id="firstsurveyForm">
         <label for="name">What is your name?</label>
         <input type="text" id="name" name="name" required><br>
 
@@ -22,12 +22,41 @@
             <option value="student">Student</option>
             <option value="other">Other</option>
         </select><br>
+
         <label for="passwordtraining">Have you received passworduser training?</label>
         <select id="passwordtraining" name="passwordtraining" required>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
         </select><br>
-        
+
+        <label for="recenttraining">If yes, when was your most recent training?</label>
+        <select id="recenttraining" name="recenttraining" required>
+            <option value="withinyear">Within the last year</option>
+            <option value="1to3years">1 - 3 years</option>
+            <option value="morethan3yrs">More than 3 years ago</option>
+        </select><br>
+
+        <label for="passwordmanager">Do you use a password manager?</label>
+        <select id="passwordmanager" name="passwordmanager" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br>
+
+
+        <label for="riskbelief">Do you believe that your accounts are at risk of being hacked?</label>
+        <select id="riskbelief" name="riskbelief" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            <option value="unsure">Unsure</option>
+        </select><br>
+
+        <label for="complexityfeelings">How do you feel about the complexity requirements for passwords (e.g., length, special characters)?</label>
+        <select id="complexityfeelings" name="complexityfeelings" required>
+            <option value="verynecessary">Very necessary</option>
+            <option value="somewhatnecessary">Somewhat necessary</option>
+            <option value="notnecessary">Not necessary</option>
+        </select><br>
+
         <label for="cyberthreatknowledge">How knowledgeable would you say you are of cyber threats?</label>
         <select id="cyberthreatknowledge" name="cyberthreatknowledge" required>
             <option value="very">very knowledgeable</option>
@@ -57,34 +86,45 @@
             <input type="text" id="otherAuth" name="otherAuth">
         </div>
         <br>
+        <h1>Did you know?</h1>
 
-        <label for="passwordreuse">How often do you reuse passwords across different accounts?</label>
-        <select id="passwordreuse" name="passwordreuse" required>
-            <option value="always">Always</option>
-            <option value="often">Often</option>
-            <option value="sometimes">Sometimes</option>
-            <option value="never">Never</option>
-        </select><br>
+        <p2> >The most common password is still "123456". It would take a hacker less than a second to crack this password!
+            <br><br>
+            >If your password is "password", it's one of the top 10 most common passwords and can be guessed almost instantly by hackers.
+            <br><br>
+            >A 12-character password with numbers, symbols, and mixed-case letters would take about 34,000 years to crack using current technology.
+            <br><br>
+            >If over 80% of hacking-related breaches are linked to weak or reused passwords. This makes it crucial to use different passwords for each of your accounts.
+            <br><br>
+            >A random passphrase like "SunsetsAreB3autiful!" is both easy to remember and difficult to crack, making it a more secure option than a simple password.
+            <br><br>
+            >While biometric authentication is becoming more popular, it's still recommended to pair it with a strong password for maximum security.
+            <br><br>
+            >If you use the same password for all your accounts, you're significantly increasing the risk of multiple accounts being compromised if one password is leaked.
+            <br><br>
+            >Passwords that are at least 15 characters long are much more secure and less likely to be cracked by brute-force attacks.
+            <br><br>
+            >Adding just one extra character to your password can make it up to 85 times more secure. The longer the password, the exponentially harder it becomes to crack.
+            <br><br>
+            >The average person has 100 passwords. Using a password manager can help you create and remember unique, strong passwords for each account.
+            <br><br>
+            >63% of confirmed data breaches leverage a weak, default, or stolen password.
+            <br><br>
+            >Changing just one letter to a symbol in your password (e.g., "e" to "3") can make it 1,000 times harder to crack!</p2>
+            <br><br><br>
 
-        <label for="passwordstorage">How do you typically store your passwords?</label>
-        <select id="passwordstorage" name="passwordstorage" required onchange="showOtherPassword()">
-            <option value="paper">Written down on paper</option>
-            <option value="savedinpc">Saved in a document on your computer</option>
-            <option value="passwordman">Stored in a password manager</option>
-            <option value="memorized">Memorized</option>
-            <option value="other">Other (please specify)</option>
+        <label for="reinputpassword">Please re-enter your password below</label>
+        <input type="password" id="reinputpassword" name="reinputpassword" required>
+
         </select>
-        <br>
-        <div id="OtherPassword" class="hidden">
-            <label for="otherpass">Please specify:</label>
-            <input type="text" id="otherpass" name="otherpass">
-        </div>
-        <br>
 
-        <button type="submit">Submit</button>
+
+        <button type="submit">Next</button>
+        <button><a href="index.html">Home</a></button>
     </form>
     <br>
-    <button><a href="login.html">Proceed</a></button>
+   
+    <!--<button><a href="survey2.html">Proceed</a></button>!-->
     
 
     <script src="survey.js"></script> <!--I could have added Async defer and stuck this in the head element but I just wanted to remind myself of the difference-->

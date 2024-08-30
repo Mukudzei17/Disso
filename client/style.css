@@ -4,12 +4,14 @@
     font-family: sans-serif;
 }
 .banner{
-    width: 100%;
-    height: 100vh;
+    position: relative;
+    width: auto;
+    height: auto;
     background-color: aqua;
     background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,1,0,0.75)), url(King\ david.jpeg);
     background-size: cover;
-    background-position: center;
+    background-position: top; 
+    margin-top: auto;
    
 }
 .navbar{
@@ -17,14 +19,14 @@
     margin: auto;
     padding: 35px;
     display: flex;
-    align-items: center;
+    align-items: first baseline;
     justify-content: space-between;
     color: aqua;
     background-color: rgb(71, 69, 66);
 
 }
 .logo{
-    width: 200px;
+    width: 20%;
     cursor: pointer;
 }
 .navbar ul li{
@@ -57,21 +59,6 @@
 
 }
 
-
-
-
-
-
-.container{
-    position: relative;
-    width: 90%;
-    height: 10vh;
-    border: 5px solid #fff;
-    display: flex;
-    justify-content: center;
-    align-items: right;
-}
-
 .logout{
     position: right;
     top: 10px;
@@ -92,21 +79,24 @@
     box-sizing: border-box;
 }
 body{
-    height: 100vh;
-    display: flex;
+    height: 100%;
     align-items: center;
-    justify-content: center;
-    background-color: aqua;
+    background-color: rgb(155, 196, 196);
+    margin: 0;
+    width: auto;
+    padding: 10px;
+    
 }
 .container{
+    height: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 15px;
-    border: 10px solid
-    rgb(30, 29, 29);
-    border-radius: 5px;
-    background-color: rgb(45, 44, 44);
+    position: relative;
+    width: auto;
+    border: 10px solid #fff;
+    padding: 50px;
+    
+    
 }
 .input{
     margin: 10px 7px;
@@ -129,14 +119,26 @@ body{
     color: rgb(27, 192, 192);
 }
 
+.sheet{
+    height: 100%;
+    flex: 1;
+    
+    width: auto;
+    margin: 25px;
+
+}
+.heading{
+    padding: 5%;
+    border: 1px solid #009688;
+    width: auto;
+    border-radius: 25%;
+    text-decoration: underline;
+}
 .greeting{
-    color: #009688;
     position: relative;
-    font-size: 23px;
-    background-color: #102d56;
-    height: 40vh;
     text-align: center;
-    margin: 5px ;
+    top: 200px;
+    font-size: larger;
 
-
+    
 }
