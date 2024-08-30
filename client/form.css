@@ -8,7 +8,7 @@
 .body{
     position: relative;
     width: 100%;
-    min-height: 100%; */
+    min-height: 100%;
     height: auto;
     display: flex;
     justify-content: center;
@@ -20,7 +20,8 @@
     height:auto;
     color: rgb(15, 15, 15);
     font-family: 'roboto', sans-serif;
-    position: relative;
+    align-items: center;
+    padding: 5%;
     
 }
 
@@ -37,7 +38,7 @@ input,
     width: 60%;
     height: 35px;
     display: block;
-    margin: 20px auto;
+    margin: 10px auto; */
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.3);
     border: none;
@@ -46,6 +47,8 @@ input,
     transition: 3.5s;
     text-transform: capitalize;
     cursor: pointer;
+    align-items: center;
+    
 }
 
 input::placeholder{
@@ -92,5 +95,5 @@ input::placeholder{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
 }
