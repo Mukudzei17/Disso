@@ -84,7 +84,7 @@ body{
     background-color: rgb(155, 196, 196);
     margin: 0;
     width: auto;
-    padding: 10px;
+    padding: 0px;
     
 }
 .container{
@@ -94,7 +94,7 @@ body{
     position: relative;
     width: auto;
     border: 10px solid #fff;
-    padding: 50px;
+    padding: 5px;
     
     
 }
@@ -121,17 +121,16 @@ body{
 
 .sheet{
     height: 100%;
-    flex: 1;
+    
     
     width: auto;
-    margin: 25px;
+    margin: 3%;
 
 }
 .heading{
     padding: 5%;
     border: 1px solid #009688;
     width: auto;
-    border-radius: 25%;
     text-decoration: underline;
 }
 .greeting{
@@ -140,5 +139,4 @@ body{
     top: 200px;
     font-size: larger;
 
-    
 }
