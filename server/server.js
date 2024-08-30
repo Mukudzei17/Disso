@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import url from 'url';
 import readline from 'readline';
+import { hostname } from 'os';
 
 const app = express();
 app.use(express.json());
@@ -73,8 +74,9 @@ app.post('/submit-survey', (req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+const PORT = process.env.PORT || 8185;
+const hosntname = '0.0.0.0'
+app.listen(PORT, hostname, () => {
   console.log(`Server is listening on port ${PORT}!`);
 });
 
